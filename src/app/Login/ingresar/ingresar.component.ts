@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
   templateUrl: './ingresar.component.html',
   styleUrls: ['./ingresar.component.css']
 })
-export class IngresarComponent implements OnInit {
+export class IngresarComponent {
 
   title='safe-sense';
 
