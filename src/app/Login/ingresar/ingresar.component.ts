@@ -19,8 +19,7 @@ export class IngresarComponent {
     this.router.navigate(['registrar']);
   }
 
-  Mostrar(){
-
-    this.router.navigate(['mostrar']);
+  Subir(){
+    this.router.navigate(['subir']);
   }
 }

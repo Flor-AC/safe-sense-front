@@ -17,4 +17,7 @@ export class MostrarComponent{
     this.router.navigate(['ingresar']);
   }
 
+  Subir() {
+    this.router.navigate(["subir"])
+  }
 }
