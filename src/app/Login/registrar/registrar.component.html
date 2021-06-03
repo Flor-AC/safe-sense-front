@@ -11,7 +11,7 @@
   </div>
 
   <div *ngIf="mostraralert" class="alert alert-dismissible alert-success" id="alerta" style="margin-left: 100px; margin-top: 50px; margin-right: 100px">
-    <strong>Se ha registrado correctamente</strong>
+    <strong>{{message}}</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -22,28 +22,28 @@
       <fieldset>
         <legend  style="text-align: center"><h1>Regstrarse</h1></legend>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"><h3>Nombre(s):</h3></label>
-          <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+          <label for="nombre" class="form-label mt-4"><h3>Nombre(s):</h3></label>
+          <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control" id="nombre" aria-describedby="nameHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"><h3>Apellido(s):</h3></label>
-          <input type="lastname" class="form-control" id="exampleInputLastName" aria-describedby="lastnameHelp">
+          <label for="apellido" class="form-label mt-4"><h3>Apellido(s):</h3></label>
+          <input type="text" [(ngModel)]="apellido" name="apellido" class="form-control" id="apellido" aria-describedby="lastnameHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"><h3>Teléfono:</h3></label>
-          <input type="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp">
+          <label for="telefono" class="form-label mt-4"><h3>Teléfono:</h3></label>
+          <input type="text" [(ngModel)]="telefono" name="telefono" class="form-control" id="telefono" aria-describedby="phoneHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"><h3>Dirección:</h3></label>
-          <input type="address" class="form-control" id="exampleInputAddress" aria-describedby="addressHelp">
+          <label for="direccion" class="form-label mt-4"><h3>Dirección:</h3></label>
+          <input type="text" [(ngModel)]="direccion" name="direccion" class="form-control" id="direccion" aria-describedby="addressHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4"><h3>Correo Electronico:</h3></label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@gmail.com">
+          <label for="correo" class="form-label mt-4"><h3>Correo Electronico:</h3></label>
+          <input type="text" [(ngModel)]="correo" name="correo" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="correo@gmail.com">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1" class="form-label mt-4"><h3>Contraseña:</h3></label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <label for="password" class="form-label mt-4"><h3>Contraseña:</h3></label>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password">
         </div>
         <div style="text-align: center; margin-top: 50px">
           <button (click)="Registrar()" type="button" class="btn btn-primary"><h4>Registrar</h4></button>

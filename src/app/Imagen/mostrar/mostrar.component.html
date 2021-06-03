@@ -29,18 +29,24 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>IP</th>
         <th>Fecha</th>
         <th>Hora</th>
+        <th>Movimiento</th>
+        <th>Foto</th>
         <th>Acciones</th>
       </tr>
       </thead>
       <tbody>
-      <tr class="text-center">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let reporte of reportes | paginate: {itemsPerPage: 5, currentPage: actual}; let i = index" class="text-center">
+        <td>{{reporte.id}}</td>
+        <td>{{reporte.nombreSensor}}</td>
+        <td>{{reporte.ip}}</td>
+        <td>{{reporte.fecha}}</td>
+        <td>{{reporte.hora}}</td>
+        <td>{{reporte.movimiento}}</td>
+        <td><img src="data:image/png;base64,{{reporte.imagen}}" width="150" height="100" /></td>
         <td>
           <button class="btn btn-warning" data-toggle="modal" data-target="#abrirEditar" type="button">Editar</button>
           <button class="btn btn-danger" style="margin-left: 10px" Delete>Delete</button>
@@ -48,5 +54,6 @@
       </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="actual = $event"></pagination-controls>
   </div>
 </div>
