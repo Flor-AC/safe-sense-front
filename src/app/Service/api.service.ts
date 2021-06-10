@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class ApiService {
 
-  private usuarioUrl = 'http://localhost:8080/api/v1/usuario';
-  private reporterUrl = 'http://localhost:8080/api/v1/reporte';
+  private usuarioUrl = 'http://187.148.109.94:8080/api/v1/usuario';
+  private reporterUrl = 'http://187.148.109.94:8080/api/v1/reporte';
 
   constructor(private http: HttpClient) { }
 
