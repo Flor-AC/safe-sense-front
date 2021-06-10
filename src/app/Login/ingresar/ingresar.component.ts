@@ -30,7 +30,6 @@ export class IngresarComponent implements OnInit{
     
     this.service.login(form).subscribe(
       data => {
-        console.log(data);
         this.isLoggedIn = data.isSuccess;
         this.alerta = data.isSuccess;
         this.message = data.message;
@@ -45,7 +44,4 @@ export class IngresarComponent implements OnInit{
     )
   }
 
-  Subir(){
-    this.router.navigate(['subir']);
-  }
 }

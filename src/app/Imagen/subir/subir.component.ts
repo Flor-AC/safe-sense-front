@@ -40,7 +40,6 @@ export class SubirComponent implements OnInit {
 
   GetLastReport(){
     this.apiService.getLastReport().subscribe(data =>{
-      console.log(data)
       this.fecha = new Date(data.fecha);
       this.hora = this.toTime(data.hora);
       this.imagen = data.imagen;

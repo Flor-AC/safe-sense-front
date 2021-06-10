@@ -37,9 +37,7 @@ export class RegistrarComponent implements OnInit {
       data => {
         this.isSuccessful = data.isSuccess;
         this.mostraralert = true;
-        console.log(data.isSuccess);
         this.message = data.message;
-        console.log(data.message);
       },
       error => {
         console.log(error);

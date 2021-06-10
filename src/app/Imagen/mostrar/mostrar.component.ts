@@ -24,9 +24,8 @@ export class MostrarComponent {
     this.service.getReportes()
       .subscribe(data => {
         this.reportes = data;
-        console.log(this.reportes)
       }, err => {
-        console.log(err)
+        console.log(err);
       });
     this.currentUser = this.storageService.getUser();
   }
