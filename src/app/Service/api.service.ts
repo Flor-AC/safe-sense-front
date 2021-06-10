@@ -32,16 +32,8 @@ export class ApiService {
     return this.http.get<Reporte[]>(this.reporterUrl, httpOptions);
   }
 
-  public getReporteById(id: number): Observable<Reporte> {
-    return this.http.get<Reporte>(`${this.reporterUrl}/${id}`, httpOptions);
-  }
-
-  public addReporte(reporte: Reporte): Observable<Reporte> {
-    return this.http.post<Reporte>(this.reporterUrl, reporte, httpOptions);
-  }
-
-  public updateReporte(reporte: Reporte): Observable<Object> {
-    return this.http.put(this.reporterUrl, reporte, httpOptions);
+  public getLastReport(): Observable<Reporte> {
+    return this.http.get<Reporte>(`${this.reporterUrl}/last`, httpOptions);
   }
  
   public deleteReporte(reporte: Reporte): Observable<any> {

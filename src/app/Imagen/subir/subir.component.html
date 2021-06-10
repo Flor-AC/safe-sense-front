@@ -3,29 +3,47 @@
   <legend style="text-align: center">
     <h1><img src="assets/images/lock.png" width="55" height="50">Safe Sense</h1>
   </legend>
-  <div class="card mb-3" style="margin-left: 100px; margin-top: 50px; margin-right: 100px">
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-      <rect width="100%" height="100%" fill="#868e96"></rect>
-      <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-    </svg>
-
-      <div *ngIf="mostraralert" class="card text-white bg-danger mb-3" id="alerta" style="max-width: 20rem; margin-inline: auto; margin-top: 25px">
-        <div class="card-header" style="text-align: center">Alert!</div>
-        <div class="card-body" style="text-align: center">
-          <h4 class="card-title">we detect a movement signal</h4>
-          <p class="card-text">{{day}}/{{month}}/{{year}} <br /> {{hour}}:{{minute}}</p>
-        </div>
+  <div *ngIf="isSafe" style="text-align: center">
+    <img src="../../../assets/images/camera-black.png">
+  </div>
+  <div *ngIf="mostraralert" style="text-align: center">
+    <img src="../../../assets/images/camera-red.png">
+  </div>
+  <div>
+    <div *ngIf="isSafe" class="card text-white bg-dark mb-3" id="alerta"
+      style="max-width: 20rem; margin-inline: auto; margin-top: 25px">
+      <div class="card-header" style="text-align: center">Info!</div>
+      <div class="card-body" style="text-align: center">
+        <h4 class="card-title">You're safe</h4>
       </div>
-
-    <div class="card">
-      <div class="card-body" style="margin-inline: auto">
-        <button (click)="Subir()" type="button" class="btn btn btn-dark"><h4>Subir</h4></button>
+    </div>
+    <div *ngIf="mostraralert" class="card text-white bg-danger mb-3" id="alerta"
+      style="max-width: 20rem; margin-inline: auto; margin-top: 25px">
+      <div class="card-header" style="text-align: center">Alert!</div>
+      <div class="card-body" style="text-align: center">
+        <h4 class="card-title">We detect a movement signal</h4>
+        <p class="card-text">{{fecha |  date:'MM/dd/yyyy'}} <br /> {{hora | date:'h:mm a'}} <br /> {{nombreSensor}}</p>
       </div>
+    </div>
+    <div *ngIf="mostraralert" id="alerta">
+      <div class="card-body" style="text-align: center">
+        <img src="data:image/png;base64,{{imagen}}" alt="Nature" class="responsive">
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 50px" *ngIf="isSafe">
+      <button (click)="StratAlert()" type="button" class="btn btn btn-dark">
+        <h4>Registro de actividad</h4>
+      </button>
+    </div>
+    <div style="text-align: center; margin-top: 50px" *ngIf="mostraralert">
+      <button (click)="StopAlert()" type="button" class="btn btn btn-dark">
+        <h4>Detener</h4>
+      </button>
     </div>
   </div>
 </div>
 <ng-template #loggedOut>
   <div class="background-image" alt="" align="center">
-      <h4>Por favor Iniciar sesión</h4>
+    <h4>Por favor Iniciar sesión</h4>
   </div>
 </ng-template>

@@ -9,7 +9,7 @@ import {ProfileComponent} from "./Profile/profile.component";
 const routes: Routes = [
   {path: 'registrar', component: RegistrarComponent},
   {path: 'ingresar', component: IngresarComponent},
-  {path: 'subir', component: SubirComponent},
+  {path: 'monitoreo', component: SubirComponent},
   {path: 'reportes', component: MostrarComponent},
   {path: 'perfil', component: ProfileComponent},
   {path: '', component: IngresarComponent}

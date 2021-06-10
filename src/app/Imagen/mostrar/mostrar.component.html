@@ -3,6 +3,14 @@
   <legend style="text-align: center">
     <h1><img src="assets/images/lock.png" width="55" height="50">Safe Sense</h1>
   </legend>
+  <h1>Listado de Reportes</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterReport" placeholder="Search By Name Sensor..." [(ngModel)]="filterReport">
+      </div>
+    </div>
+  </div>
   <div class="card-body">
     <table class="table table-hover ">
       <thead>
@@ -18,7 +26,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let reporte of reportes | paginate: {itemsPerPage: 5, currentPage: actual}; let i = index" class="text-center">
+      <tr *ngFor="let reporte of reportes | filter:filterReport | paginate: {itemsPerPage: 5, currentPage: actual}; let i = index" class="text-center">
         <td>{{reporte.id}}</td>
         <td>{{reporte.nombreSensor}}</td>
         <td>{{reporte.ip}}</td>
@@ -28,15 +36,17 @@
         <td><img src="data:image/png;base64,{{reporte.imagen}}" width="150" height="100" /></td>
         <td>
           <button class="btn btn-warning" data-toggle="modal" data-target="#abrirEditar" type="button">Editar</button>
-          <button class="btn btn-danger" style="margin-left: 10px" Delete>Delete</button>
+          <button (click)="Eliminar(reporte)" class="btn btn-danger" style="margin-left: 10px" Delete>Delete</button>
         </td>
       </tr>
       </tbody>
     </table>
     <pagination-controls (pageChange)="actual = $event"></pagination-controls>
   </div>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin-clockwise">
+    <p style="font-size: 20px; color: white">Cargando...</p>
+  </ngx-spinner>
 </div>
-
 <ng-template #loggedOut>
   <div class="background-image" alt="" align="center">
       <h4>Por favor Iniciar sesión</h4>

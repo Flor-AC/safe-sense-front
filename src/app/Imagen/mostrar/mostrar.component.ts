@@ -11,6 +11,7 @@ import { StorageService } from '../../Service/storage.service';
 })
 export class MostrarComponent {
 
+  filterReport = '';
   reportes: Reporte[];
   actual: number = 1;
   currentUser: any;
@@ -28,5 +29,12 @@ export class MostrarComponent {
         console.log(err)
       });
     this.currentUser = this.storageService.getUser();
+  }
+
+  Eliminar(reporte:Reporte){
+    this.service.deleteReporte(reporte).subscribe((data) => {
+      this.reportes = this.reportes.filter(e => e!==reporte);
+      alert("Reporte eliminado ...")
+    })
   }
 }

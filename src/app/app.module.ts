@@ -17,6 +17,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './Profile/profile.component';
 import { HeadingComponent } from './heading/heading.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeadingComponent } from './heading/heading.component';
     SubirComponent,
     MostrarComponent,
     ProfileComponent,
-    HeadingComponent
+    HeadingComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
