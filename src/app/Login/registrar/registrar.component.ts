@@ -8,27 +8,19 @@ import {Usuario} from '../../Model/usuario';
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.css']
 })
-export class RegistrarComponent {
+export class RegistrarComponent implements OnInit {
 
-  mostraralert:boolean;
-  nombre: string;
-  apellido: string;
-  telefono: string;
-  direccion: string;
-  correo: string;
-  password: string;
-  message: string;
+  mostraralert = true;
+  isSuccessful = false;
+  nombre = '';
+  apellido = '';
+  telefono = '';
+  direccion = '';
+  correo = '';
+  password = '';
+  message = '';
 
-  constructor(private router: Router, private service: ApiService) {
-    this.mostraralert = false;
-    this.nombre = '';
-    this.apellido = '';
-    this.telefono = '';
-    this.direccion = '';
-    this.correo = '';
-    this.password = '';
-    this.message = '';
-  }
+  constructor(private router: Router, private service: ApiService) {}
 
   ngOnInit(): void {
   }
@@ -43,8 +35,8 @@ export class RegistrarComponent {
     form.password = this.password;
     this.service.register(form).subscribe(
       data => {
-        
-        this.mostraralert = data.isSuccess;
+        this.isSuccessful = data.isSuccess;
+        this.mostraralert = true;
         console.log(data.isSuccess);
         this.message = data.message;
         console.log(data.message);
@@ -52,6 +44,7 @@ export class RegistrarComponent {
       error => {
         console.log(error);
         this.message = error.error.message;
+        this.isSuccessful = error.error.isSuccess;
         this.mostraralert = error.error.isSuccess;
       }
     );

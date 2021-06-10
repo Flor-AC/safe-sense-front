@@ -3,7 +3,10 @@
 }
 
 .background-image {
-    background: url(../../../assets//images/background-1.jpg) no-repeat center;
+    background: url(../../assets/images/background-1.jpg) no-repeat center;
     background-size: 50%;
     height: 85vh;
+}
+hr{
+    color: white;
 }

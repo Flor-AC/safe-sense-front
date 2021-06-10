@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { ApiService } from '../../Service/api.service';
+import { StorageService } from '../../Service/storage.service';
 
 @Component({
   selector: 'app-subir',
@@ -13,8 +15,9 @@ export class SubirComponent {
   year: number;
   hour: number;
   minute: number;
+  currentUser: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private apiService:ApiService, private storageService: StorageService) {
     this.mostraralert = false;
     this.day = 0;
     this.month = 0;
@@ -25,6 +28,7 @@ export class SubirComponent {
 
   ngOnInit(): void {
     this.obtenerFecha();
+    this.currentUser = this.storageService.getUser();
   }
 
   Mostrar() {
